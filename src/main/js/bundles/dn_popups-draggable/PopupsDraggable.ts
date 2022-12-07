@@ -14,7 +14,7 @@
 /// limitations under the License.
 ///
 
-import interact from "interactjs";
+import {interact} from "interactjs";
 
 export default class PopupsDraggable {
 
@@ -44,12 +44,12 @@ export default class PopupsDraggable {
         }
 
         // setup the new listener:
-        const position = { x: 0, y: 0 };
+        const position = {x: 0, y: 0};
         interact(this.popupTargetSelectionString).draggable({
             listeners: {
-            // start (event) {
-            //   console.log(event.type, event.target)
-            // },
+                // start (event) {
+                //   console.log(event.type, event.target)
+                // },
                 move(event) {
                     // hide the popup pointer:
                     const elements = document.querySelectorAll(".esri-popup__pointer");
