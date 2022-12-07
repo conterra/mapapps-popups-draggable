@@ -14,7 +14,7 @@
 /// limitations under the License.
 ///
 
-import {interact} from "interactjs";
+import interact from "interactjs";
 
 export default class PopupsDraggable {
 
