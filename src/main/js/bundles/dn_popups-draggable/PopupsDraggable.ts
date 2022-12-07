@@ -39,7 +39,7 @@ export default class PopupsDraggable {
     setupInteractJs() {
         // popup opened - first delete the old listener if applicable:
         // https://github.com/taye/interact.js/blob/main/docs/faq.md#remove--destroy--release
-        if (interact.interact.isSet(this.popupTargetSelectionString)) {
+        if (interact.isSet(this.popupTargetSelectionString)) {
             interact(this.popupTargetSelectionString).unset();
         }
 
