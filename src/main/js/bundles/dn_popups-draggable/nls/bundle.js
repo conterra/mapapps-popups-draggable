@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 export default {
-    root: {
-        bundleName: "Hello World",
-        bundleDescription: "This bundle prints Hello.",
-        hello: "Hello World"
-    },
+    root: {},
     de: true
 };

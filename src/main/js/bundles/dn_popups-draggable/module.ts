@@ -14,4 +14,5 @@
 /// limitations under the License.
 ///
 
-import "dojo/i18n!./nls/bundle";
+import ".";
+import "./PopupsDraggable";

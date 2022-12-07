@@ -1,9 +1,6 @@
 {
     "load": {
-        "bundleLocations": [
-            "localbundles",
-            "bundles"
-        ],
+        "bundleLocations": ["localbundles", "bundles"],
         "allowedBundles": [
             "system",
             "console",
@@ -25,7 +22,7 @@
             "search-ui",
             "locator-store",
             "toc",
-            "sample_helloworld"
+            "dn_popups-draggable"
         ]
     },
     "bundles": {
@@ -56,7 +53,14 @@
                     }
                 ],
                 "map": {
-                    "layers": []
+                    "layers": [
+                        {
+                            "id": "featurelayer1",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services.arcgis.com/ObdAEOfl1Z5LP2D0/arcgis/rest/services/K%C3%B6ln/FeatureServer/7",
+                            "visible": true
+                        }
+                    ]
                 },
                 "view": {
                     "viewmode": "2D",
@@ -79,8 +83,9 @@
         },
         "toc": {
             "Config": {
-                "showBasemaps" : true,
-                "showLayerLegend": true
+                "showBasemaps": true,
+                "showLayerLegend": true,
+                "autoExpandLegend": true
             }
         },
         "toolset": {
@@ -117,7 +122,6 @@
                             "tocToggleTool",
                             "printingToggleTool",
                             "sharelinkTool",
-                            "helloTool",
                             "IMPRINT_Imprint_CustomInfoTool",
                             "IMPRINT_Imprint_CustomInfoTool_mobile"
                         ],

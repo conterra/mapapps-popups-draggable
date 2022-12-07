@@ -1,0 +1,19 @@
+{
+    "name": "dn_popups-draggable",
+    "version": "4.14.1-SNAPSHOT",
+    "title": "Popups Draggable",
+    "description": "This bundle makes popups draggable to move them to other positions on the screen.",
+    "vendor": "con terra GmbH",
+    "main": "",
+    "productName": "devnet-mapapps-popups-draggable",
+    "i18n": ["bundle"],
+    "components": [
+        {
+            "name": "Config",
+            "impl": "./PopupsDraggable",
+            "provides": [
+                "dn_popups-draggable.PopupsDraggable"
+            ]
+        }
+    ]
+}
