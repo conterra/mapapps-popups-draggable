@@ -14,25 +14,69 @@
 /// limitations under the License.
 ///
 
-interface PropertiesObject {
-    [key: string]: any;
-}
+import interact from "interactjs";
 
-export default class Hello {
-    private msg: string;
-    _properties: PropertiesObject;
+export default class PopupsDraggable {
 
-    activate() {
-        this.msg = this._properties.message;
+    private popupTargetSelectionString = ".esri-component.esri-popup";
+
+    async activate() {
+        const view = await this.getView();
+
+        view.popup.watch("features", (features) => {
+            if (features.length === 0) {
+                // popup closed - reset the transform css so that it doesn't move next time the popup opens
+                const elements = document.querySelectorAll(this.popupTargetSelectionString);
+                if (elements && elements.length > 0) {
+                    elements[0].style.transform = `translate(0px, 0px)`;
+                }
+            } else {
+                this.setupInteractJs();
+            }
+        });
     }
 
-    print() {
-        // eslint-disable-next-line no-alert
-        alert(this.getMessage());
+    setupInteractJs() {
+        // popup opened - first delete the old listener if applicable:
+        // https://github.com/taye/interact.js/blob/main/docs/faq.md#remove--destroy--release
+        if (interact.interact.isSet(this.popupTargetSelectionString)) {
+            interact(this.popupTargetSelectionString).unset();
+        }
+
+        // setup the new listener:
+        const position = { x: 0, y: 0 };
+        interact(this.popupTargetSelectionString).draggable({
+            listeners: {
+            // start (event) {
+            //   console.log(event.type, event.target)
+            // },
+                move(event) {
+                    // hide the popup pointer:
+                    const elements = document.querySelectorAll(".esri-popup__pointer");
+                    elements[0].style.display = "none";
+
+                    // calculate the position and update:
+                    position.x += event.dx;
+                    position.y += event.dy;
+
+                    event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+                }
+            }
+        });
     }
 
-    getMessage() {
-        return this.msg;
+    private getView(): Promise<View> {
+        const mapWidgetModel = this._mapWidgetModel;
+        return new Promise((resolve) => {
+            if (mapWidgetModel.view) {
+                resolve(mapWidgetModel.view);
+            } else {
+                const watcher = mapWidgetModel.watch("view", ({value: view}) => {
+                    watcher.remove();
+                    resolve(view);
+                });
+            }
+        });
     }
 
 }
