@@ -1,0 +1,14 @@
+{
+    "name": "ineractjs",
+    "version": "1.10.17",
+    "title": "ineractjs",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taye/interact.js"
+    },
+    "homepage": "https://interactjs.io/pro",
+    "main": "index.js",
+    "layer": "",
+    "i18n": []
+}
