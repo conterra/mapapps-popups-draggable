@@ -6,7 +6,7 @@ This bundle makes popups draggable to move them to other positions on the screen
 [![devnet-bundle-snapshot](https://github.com/conterra/mapapps-popups-draggable/actions/workflows/devnet-bundle-snapshot.yml/badge.svg)](https://github.com/conterra/mapapps-popups-draggable/actions/workflows/devnet-bundle-snapshot.yml)
 
 ## Sample App
-https://demos.conterra.de/mapapps/resources/apps/downloads_popups_draggable/index.html
+https://demos.conterra.de/mapapps/resources/apps/downloads_popups-draggable/index.html
 
 ## Installation Guide
 ⚠️**Requirement: map.apps 4.12.0**
