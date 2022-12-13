@@ -46,6 +46,7 @@ export default class PopupsDraggable {
         // setup the new listener:
         const position = {x: 0, y: 0};
         interact(this.popupTargetSelectionString).draggable({
+            allowFrom: '.esri-popup__header',
             listeners: {
                 // start (event) {
                 //   console.log(event.type, event.target)
@@ -78,5 +79,4 @@ export default class PopupsDraggable {
             }
         });
     }
-
 }
