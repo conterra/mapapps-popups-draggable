@@ -15,6 +15,7 @@
 ///
 
 import interact from "interactjs";
+import async from "apprt-core/async";
 
 export default class PopupsDraggable {
 
@@ -26,10 +27,14 @@ export default class PopupsDraggable {
         view.popup.watch("features", (features) => {
             if (features.length === 0) {
                 // popup closed - reset the transform css so that it doesn't move next time the popup opens
-                const elements = document.querySelectorAll(this.popupTargetSelectionString);
-                if (elements && elements.length > 0) {
-                    elements[0].style.transform = `translate(0px, 0px)`;
-                }
+                async(() => {
+                    const elements = document.querySelectorAll(this.popupTargetSelectionString);
+                    if (elements && elements.length > 0) {
+                        elements[0].style.transform = `translate(0px, 0px)`;
+                        console.info(elements);
+                    }
+                }, 100);
+
             } else {
                 this.setupInteractJs();
             }
