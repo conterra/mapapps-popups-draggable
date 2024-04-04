@@ -1,5 +1,5 @@
 ///
-/// Copyright (C) 2022 con terra GmbH (info@conterra.de)
+/// Copyright (C) 2023 con terra GmbH (info@conterra.de)
 ///
 /// Licensed under the Apache License, Version 2.0 (the "License");
 /// you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ export default class PopupsDraggable {
     setupInteractJs() {
         // popup opened - first delete the old listener if applicable:
         // https://github.com/taye/interact.js/blob/main/docs/faq.md#remove--destroy--release
+
         if (interact.isSet(this.popupTargetSelectionString)) {
             interact(this.popupTargetSelectionString).unset();
         }
@@ -46,7 +47,7 @@ export default class PopupsDraggable {
         // setup the new listener:
         const position = {x: 0, y: 0};
         interact(this.popupTargetSelectionString).draggable({
-            allowFrom: '.esri-popup__header',
+            allowFrom: '.header-container',
             listeners: {
                 // start (event) {
                 //   console.log(event.type, event.target)
