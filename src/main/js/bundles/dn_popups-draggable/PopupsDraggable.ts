@@ -1,5 +1,5 @@
 ///
-/// Copyright (C) 2024 con terra GmbH (info@conterra.de)
+/// Copyright (C) 2023 con terra GmbH (info@conterra.de)
 ///
 /// Licensed under the Apache License, Version 2.0 (the "License");
 /// you may not use this file except in compliance with the License.
@@ -21,10 +21,10 @@ export default class PopupsDraggable {
 
     private popupTargetSelectionString = ".esri-component.esri-popup";
 
-    async activate() {
+    async activate(): Promise<void> {
         const view = await this.getView();
 
-        view.popup.watch("features", (features) => {
+        view.popup.watch("features", (features: any) => {
             if (features.length === 0) {
                 // popup closed - reset the transform css so that it doesn't move next time the popup opens
                 async(() => {
@@ -41,7 +41,7 @@ export default class PopupsDraggable {
         });
     }
 
-    setupInteractJs() {
+    setupInteractJs(): void {
         // popup opened - first delete the old listener if applicable:
         // https://github.com/taye/interact.js/blob/main/docs/faq.md#remove--destroy--release
 

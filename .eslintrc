@@ -3,7 +3,5 @@
 	"plugins": [
 		"vue"
 	],
-    "ignorePatterns": [
-        "src/main/js/bundles/interactjs"
-    ]
+    "ignorePatterns": ["/src/main/js/bundles/interactjs/**"]
 }
