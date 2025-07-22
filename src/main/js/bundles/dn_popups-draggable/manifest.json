@@ -8,7 +8,7 @@
     "productName": "devnet-mapapps-popups-draggable",
     "i18n": ["bundle"],
     "dependencies": {
-        "interactjs": "^1.10.0",
+        "apprt-core": "^4.12.0",
         "map-widget": "^4.12.0"
     },
     "components": [

@@ -14,5 +14,4 @@
 /// limitations under the License.
 ///
 
-import ".";
-import "./PopupsDraggable";
+export { PopupsDraggable } from "./PopupsDraggable";

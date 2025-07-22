@@ -17,9 +17,10 @@
 import interact from "interactjs";
 import async from "apprt-core/async";
 
-export default class PopupsDraggable {
+export class PopupsDraggable {
 
     private popupTargetSelectionString = ".esri-component.esri-popup";
+    private interactable: any = null;
 
     async activate(): Promise<void> {
         const view = await this.getView();
@@ -42,31 +43,29 @@ export default class PopupsDraggable {
     }
 
     setupInteractJs(): void {
-        // popup opened - first delete the old listener if applicable:
-        // https://github.com/taye/interact.js/blob/main/docs/faq.md#remove--destroy--release
-
-        if (interact.isSet(this.popupTargetSelectionString)) {
-            interact(this.popupTargetSelectionString).unset();
+        // Remove previous interactable if it exists
+        if (this.interactable) {
+            this.interactable.unset();
+            this.interactable = null;
         }
 
         // setup the new listener:
         const position = {x: 0, y: 0};
-        interact(this.popupTargetSelectionString).draggable({
+        this.interactable = interact(this.popupTargetSelectionString).draggable({
             allowFrom: '.header-container',
             listeners: {
-                // start (event) {
-                //   console.log(event.type, event.target)
-                // },
                 move(event) {
                     // hide the popup pointer:
                     const elements = document.querySelectorAll(".esri-popup__pointer");
-                    elements[0].style.display = "none";
+                    if (elements && elements.length > 0 && (elements[0] as HTMLElement).style) {
+                        (elements[0] as HTMLElement).style.display = "none";
+                    }
 
                     // calculate the position and update:
                     position.x += event.dx;
                     position.y += event.dy;
 
-                    event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+                    (event.target as HTMLElement).style.transform = `translate(${position.x}px, ${position.y}px)`;
                 }
             }
         });
