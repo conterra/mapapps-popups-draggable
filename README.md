@@ -7,7 +7,7 @@ This bundle makes popups draggable to move them to other positions on the screen
 ![Screenshot App](https://github.com/conterra/mapapps-popups-draggable/blob/main/screenshot.JPG)
 
 ## Sample App
-https://demos.conterra.de/mapapps/resources/apps/downloads_popups-draggable/index.html
+https://demos.conterra.de/mapapps/resources/apps/public_demo_popupsdraggable/index.html
 
 ## Installation Guide
 ⚠️**Requirement: map.apps 4.16.0**
