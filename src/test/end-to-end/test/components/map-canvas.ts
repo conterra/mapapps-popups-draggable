@@ -17,10 +17,6 @@ export class MapCanvas {
         await this.canvas.click({ position: location });
     }
 
-    async hoverOnMap(location: Point): Promise<void> {
-        await this.canvas.hover({ position: location });
-    }
-
     async drawLine(from: Point, to: Point): Promise<void> {
         await this.canvas.click({ position: from });
         await this.canvas.dblclick({ position: to });
