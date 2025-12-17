@@ -1,6 +1,6 @@
 {
     "name": "dn_popups-draggable",
-    "version": "1.1.1-SNAPSHOT",
+    "version": "1.2.0",
     "title": "Popups Draggable",
     "description": "This bundle makes popups draggable to move them to other positions on the screen.",
     "vendor": "con terra GmbH",
