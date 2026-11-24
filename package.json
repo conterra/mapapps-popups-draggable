@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@arcgis/core": "4.33.14",
+        "interactjs": "1.10.27",
         "vue": "2.7.16"
     },
     "devDependencies": {

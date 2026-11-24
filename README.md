@@ -30,3 +30,17 @@ $ mvn compile -Denv=dev -Pinclude-mapapps-deps
 # run unit tests
 $ mvn test -P run-js-tests,include-mapapps-deps
 ```
+
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE).
+
+### Third-party software
+
+The following third-party software is compiled into the bundles of this project and distributed with them:
+
+| Component | Used in bundle | License |
+|---|---|---|
+| [interact.js](https://interactjs.io/) 1.10.27 | `dn_popups-draggable` | MIT, Copyright (c) Taye Adeyemi |
+
+The license texts are shipped with the bundles in `licenses/<component>/`.
